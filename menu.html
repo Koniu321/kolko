@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="menu.css">
+    <title>Menu</title>
+    <script>
+        
+        function pokazPoziom(zmienna)
+        {
+            if(zmienna)
+            document.getElementById("poziom").style.visibility = "visible";
+            else document.getElementById("poziom").style.visibility = "hidden";
+        }
+        
+        
+    
+        window.onload = function()
+        {
+            let text= location.href;
+            text=text.charAt(text.length-1);
+            if(text == "l")
+                {
+                    pokazPoziom(false);   
+                }
+            else{
+                
+               // alert(document.getElementById("poziomy").innerHTML);
+                let linki = document.getElementById("poziomy").innerHTML;
+                linki = linki.replace(/x/g , text);
+           //     alert(linki);
+                document.getElementById("poziomy").innerHTML = linki;
+            }
+             var elementG=document.getElementById("g");
+                elementG.addEventListener('click', function(element){
+                
+                    //alert("g");
+                     pokazPoziom(true);
+                
+                }
+                );
+                var elementK=document.getElementById("k");
+                elementK.addEventListener('click', function(element){
+                
+                    //alert("k");
+                    pokazPoziom(true);
+                
+                }
+                );
+        }
+    </script>
+    
+    
+</head>
+<body>
+    <h1 >Kólko i krzyżyk</h1>
+    
+    
+    
+          <div id="kto">  
+          
+              <h2>Kto zaczyna?</h2>
+              <span id="gracz"><a href="menu.html?g"><button id="g"  class="guzik" >Gracz</button></a></span>
+              
+              <span id="komputer"><a href="menu.html?k"><button id="k"  class="guzik">Komputer</button></a></span>
+              
+          
+          </div>
+      <!--    <div id="wybor1">    </div>
+          <div id="wybor2">    </div> -->
+          <div id="poziom">  
+          
+              <h2>Wybierz poziom komputera</h2>
+              <span id="poziomy"><a href="kolko.html?x1"><button id="easy" class="guzik">Łatwy</button></a>
+             <a href="kolko.html?x2"><button id="medium" class="guzik">Średni</button></a>
+             <a href="kolko.html?x3"><button id="hard" class="guzik">Trudny</button></a>
+             </span>
+              
+          
+          </div>
+</body>
+</html>
